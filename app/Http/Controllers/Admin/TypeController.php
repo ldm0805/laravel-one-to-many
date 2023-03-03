@@ -86,6 +86,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+
+        return redirect()->route('admin.types.index')->with('message', 'La cancellazione del project '.$type->title.' è andata a buon fine.');
     }
 }

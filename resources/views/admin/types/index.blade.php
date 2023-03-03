@@ -37,7 +37,13 @@
             <td class="text-white">{{$type->slug}}</td>
             <td class="text-white">modifica</td>
             <td class="text-white">visualizza</td>
-            <td class="text-white">elimina</td>
+            <td class="text-white"> <form class="d-inline-block" action="{{route('admin.types.destroy', $type->slug)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger bnt-sm btn-square confirm-delete-button" type="submit" title="Cancella project">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </form></td>
           </tr>
         </tbody>
         @endforeach
