@@ -68,7 +68,7 @@
                                     Visualizza i nuovi tipi.
                                 </a>
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.create' ? 'bg-secondary' : '' }}" href="{{route('admin.types.create')}}">
-                                    <i class="fa-solid fa-list fa-lg fa-fw"></i>
+                                    <i class="fa-solid fa-square-plus fa-lg fa-fw"></i>
                                     Aggiungi un nuovo tipo.
                                 </a>
                             </li>

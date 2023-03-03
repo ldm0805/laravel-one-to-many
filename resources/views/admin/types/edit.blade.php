@@ -13,7 +13,7 @@
                 <label class="control-label mb-2">
                     Nome
                 </label>
-                <input type="text" class="form-control" placeholder="Nome" id="name" name="name">
+                <input type="text" class="form-control" placeholder="Nome" id="name" name="name" value="{{old('name') ?? $type->name}}">
                     @error('name')
                     <div class="alert alert-danger mt-2">{{$message}}</div>
                     @enderror
