@@ -20,6 +20,19 @@
             </div>
             <div class="form-group mb-3">
                 <label class="control-label mb-2">
+                    Categoria
+                </label>
+              <select class="form-control" name="type_id" id="type_id">
+                @foreach($types as $type)
+                <option value="{{$type->id}}" {{ $type->id == old('type_id', $project->type_id) ? 'selected' : '' }}>{{$type->name}}</option>
+                @endforeach
+              </select>
+              @error('type_id')
+                <div class="alert alert-danger mt-2">{{$message}}</div>
+              @enderror
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label mb-2">
                     Data
                 </label>
                 <input type="date" class="form-control" placeholder="Data" name="date_project" value="{{old('date_project') ?? $project->date_project}}">
