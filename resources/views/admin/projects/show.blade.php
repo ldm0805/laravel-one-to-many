@@ -9,7 +9,7 @@
                     </a>
                 </div>
                 <div class="d-flex justify-content-center gap-2">
-                    <h4>{{$project->title}}</h4>
+                    <h4>Titolo progetto: {{$project->title}}.</h4>
                 </div>
             </div>
             <div class="col-12">

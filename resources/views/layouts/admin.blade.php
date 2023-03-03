@@ -63,6 +63,10 @@
                                     <i class="fa-solid fa-square-plus fa-lg fa-fw"></i>
                                     Aggiungi un nuovo project.
                                 </a>
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}" href="{{route('admin.types.index')}}">
+                                    <i class="fa-solid fa-list fa-lg fa-fw"></i>
+                                    Aggiungi un nuovo type.
+                                </a>
                             </li>
 
                         </ul>
