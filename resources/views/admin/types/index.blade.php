@@ -8,7 +8,7 @@
     <div>
         <a href="{{route('admin.types.create')}}" class="btnblue">
             <i class="fa-solid fa-plus-square fa-fw fa-lg mr-2"></i>
-            Aggiungi un nuovo project
+            Aggiungi un nuovo type
         </a>
         <div class="mt-3">
             @if(session('message'))
@@ -24,9 +24,7 @@
             <th>ID</th>
             <th>Nome</th>
             <th>Slug</th>
-            <th>Modifica</th>
-            <th>Visualizza</th>
-            <th>Elimina</th>
+            <th>Azioni</th>
           </tr>
         </thead>
     @foreach ($types as $type)
@@ -35,12 +33,13 @@
             <td class="text-white">{{$type->id}}</td>
             <td class="text-white">{{$type->name}}</td>
             <td class="text-white">{{$type->slug}}</td>
-            <td class="text-white">modifica</td>
-            <td class="text-white">visualizza</td>
-            <td class="text-white"> <form class="d-inline-block" action="{{route('admin.types.destroy', $type->slug)}}" method="POST">
+            <td class="text-white"> 
+                <a class="btn btn-sm btn-square btn-primary" href="{{route('admin.types.show', $type->slug)}}" title="Visualizza type"><i class="fas fa-eye"></i></a>
+                <a class="btn btn-sm btn-square btn-warning" href="{{route('admin.types.edit', $type->slug)}}" title="Modifica type"><i class="fas fa-edit"></i></a>
+                <form class="d-inline-block" action="{{route('admin.types.destroy', $type->slug)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger bnt-sm btn-square confirm-delete-button" type="submit" title="Cancella project">
+                <button class="btn btn-danger btn-sm btn-square confirm-delete-button" type="submit" title="Cancella">
                     <i class="fas fa-trash"></i>
                 </button>
             </form></td>

@@ -30,7 +30,8 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+        return view('admin.types.create', compact('types'));
     }
 
     /**
@@ -41,7 +42,20 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // Ottengo i dati validati dalla richiesta
+       $form_data = $request->validated();
+    
+       // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
+       $slug = Type::generateSlug($request->title, '-');
+   
+       // Lo slug viene aggiunto ai dati del form
+       $form_data['slug'] = $slug;
+   
+       // Creo un nuovo progetto nel database utilizzando i dati del form
+       $newProj = Type::create($form_data);
+   
+       // Reindirizzamento all'index con messaggio di conferma crezione
+       return redirect()->route('admin.types.index')->with('message', 'Il project è stato creato correttamente');
     }
 
     /**
@@ -52,7 +66,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -63,7 +77,9 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        $types = Type::all();
+
+        return view('admin.types.edit', compact('types'));
     }
 
     /**
@@ -75,7 +91,19 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        
+       // Ottengo i dati validati dalla richiesta
+       $form_data = $request->validated();
+    
+       // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
+       $slug = Type::generateSlug($request->title, '-');
+   
+       // Lo slug viene aggiunto ai dati del form
+       $form_data['slug'] = $slug;
+   
+       $type->update($form_data);
+       
+       return redirect()->route('admin.types.index')->with('message', 'La modifica del project '.$types->title.' è andata a buon fine.');
     }
 
     /**
