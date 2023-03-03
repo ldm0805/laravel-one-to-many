@@ -10,19 +10,10 @@
             @csrf
             <div class="form-group mb-3">
                 <label class="control-label mb-2">
-                    Titolo
+                    Nome
                 </label>
-                <input type="text" class="form-control" placeholder="Titolo" id="title" name ="title">
-                    @error('title')
-                    <div class="alert alert-danger mt-2">{{$message}}</div>
-                    @enderror
-            </div>
-            <div class="form-group mb-3">
-                <label class="control-label mb-2">
-                    Categoria
-                </label>
-                <input type="text" class="form-control" placeholder="Titolo" id="type_id" name ="type_id">
-                    @error('type_id')
+                <input type="text" class="form-control" placeholder="Nome" id="name" name="name">
+                    @error('name')
                     <div class="alert alert-danger mt-2">{{$message}}</div>
                     @enderror
             </div>

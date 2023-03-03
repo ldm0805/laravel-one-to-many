@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Type as Type;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
 use App\Models\Category as Category;
 
 
@@ -34,19 +36,19 @@ class TypeController extends Controller
         return view('admin.types.create', compact('types'));
     }
 
-    /**
+      /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreTypeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTypeRequest $request)
     {
        // Ottengo i dati validati dalla richiesta
        $form_data = $request->validated();
     
        // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
-       $slug = Type::generateSlug($request->title, '-');
+       $slug = Type::generateSlug($request->name, '-');
    
        // Lo slug viene aggiunto ai dati del form
        $form_data['slug'] = $slug;
@@ -55,7 +57,7 @@ class TypeController extends Controller
        $newProj = Type::create($form_data);
    
        // Reindirizzamento all'index con messaggio di conferma crezione
-       return redirect()->route('admin.types.index')->with('message', 'Il project è stato creato correttamente');
+       return redirect()->route('admin.types.index')->with('message', 'Il type è stato creato correttamente');
     }
 
     /**
@@ -85,18 +87,18 @@ class TypeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UpdateTypeRequest  $request
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
         
        // Ottengo i dati validati dalla richiesta
        $form_data = $request->validated();
     
        // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
-       $slug = Type::generateSlug($request->title, '-');
+       $slug = Type::generateSlug($request->name, '-');
    
        // Lo slug viene aggiunto ai dati del form
        $form_data['slug'] = $slug;
