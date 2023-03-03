@@ -24,6 +24,13 @@
                         Contenuto:
                     </strong>
                     {{$project->content}}
+                </p>
+                <p>
+                    <strong>
+                        Tipo:
+                    </strong>
+                    {{$project->type ? $project->type->name : 'senza categoria'}}
+                </p>
             </div>
         </div>
     </div>

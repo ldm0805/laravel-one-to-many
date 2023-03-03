@@ -29,6 +29,7 @@
                 <p class="titleCard">{{$project->title}}</p>
                 <p class="tecnologiesCard">Data: {{ $utils->changeDate($project->date_project) }}</p>
                 <p class="tecnologiesCard">{{$project->slug}}</p>
+                <p class="tecnologiesCard">Tipo: {{$project->type ? $project->type->name : 'Mancante'}}</p>
                 <p class="descriptionCard">Contenuto: {{$project->content}}</p>
                 <a class="btn btn-sm btn-square btn-primary" href="{{route('admin.projects.show', $project->slug)}}" title="Visualizza project"><i class="fas fa-eye"></i></a>
                 <a class="btn btn-sm btn-square btn-warning" href="{{route('admin.projects.edit', $project->slug)}}" title="Modifica project"><i class="fas fa-edit"></i></a>
