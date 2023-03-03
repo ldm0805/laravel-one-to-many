@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Type as Type;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category as Category;
+
 
 class TypeController extends Controller
 {
