@@ -6,7 +6,7 @@
             <h2 class="text-white">Modifica</h2>
         </div>
         <div class="col-12">
-            <form action="{{route('admin.types.update', $types->slug)}}" method="POST">
+            <form action="{{route('admin.types.update', $type->slug)}}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group mb-3">
