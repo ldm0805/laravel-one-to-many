@@ -34,10 +34,10 @@ return new class extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            //passsaggio
-            $table->dropForeign('projects_type_id_foreign'); //droppa nella tabella projects la colonna category_id che è la foreign key
-            //2 passaggio
-            $table->dropColumn('type_id');
+        //passsaggio
+        $table->dropForeign('projects_type_id_foreign'); //droppa nella tabella projects la colonna category_id che è la foreign key
+        //2 passaggio
+        $table->dropColumn('type_id');
         });
     }
 };

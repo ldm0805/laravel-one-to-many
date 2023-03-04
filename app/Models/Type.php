@@ -12,10 +12,11 @@ class Type extends Model
 {
     use HasFactory;
     protected $fillable= ['name', 'slug'];
+
     public static function generateSlug($title){
         return Str::slug($title, '-');
     }
-    public function projects(){
+    public function project(){
         return $this->hasMany(Project::class);
     }
 }

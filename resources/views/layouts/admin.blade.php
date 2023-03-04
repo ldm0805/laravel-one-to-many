@@ -49,7 +49,6 @@
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                {{Route::currentRouteName()}}
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-secondary' : '' }}" href="{{route('admin.dashboard')}}">
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                                 </a>
@@ -64,8 +63,8 @@
                                     Aggiungi un nuovo project.
                                 </a>
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}" href="{{route('admin.types.index')}}">
-                                    <i class="fa-solid fa-list fa-lg fa-fw"></i>
-                                    Visualizza i nuovi tipi.
+                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> 
+                                    Tipi
                                 </a>
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.create' ? 'bg-secondary' : '' }}" href="{{route('admin.types.create')}}">
                                     <i class="fa-solid fa-square-plus fa-lg fa-fw"></i>

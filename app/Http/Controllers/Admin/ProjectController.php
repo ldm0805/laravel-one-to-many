@@ -99,7 +99,7 @@ class ProjectController extends Controller
        $form_data = $request->validated();
     
        // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
-       $slug = Project::generateSlug($request->title, '-');
+       $slug = Project::generateSlug($request->title);
    
        // Lo slug viene aggiunto ai dati del form
        $form_data['slug'] = $slug;
@@ -124,3 +124,4 @@ class ProjectController extends Controller
         return redirect()->route('admin.projects.index')->with('message', 'La cancellazione del project '.$project->title.' è andata a buon fine.');
     }
 }
+?>
