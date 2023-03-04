@@ -3,12 +3,12 @@
 @section('content')
 <div class="container-fluid">
     <div class="text-center text-white mt-4">
-        <h1 class="mb-4">Benvenuto nei tuoi projects!</h1>
+        <h1>Benvenuto nei tuoi progetti!</h1>
     </div>
-    <div>
-        <a href="{{route('admin.projects.create')}}" class="btnblue">
+    <div class="my-5">
+        <a href="{{route('admin.projects.create')}}" class="btnblue m-5">
             <i class="fa-solid fa-plus-square fa-fw fa-lg mr-2"></i>
-            Aggiungi un nuovo project
+            Aggiungi un nuovo progetto.
         </a>
         <div class="mt-3">
             @if(session('message'))
